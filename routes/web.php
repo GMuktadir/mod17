@@ -20,4 +20,8 @@ Route::post('/crud/edit/{id}', [CrudController::class, 'edit'])->name('crud/edit
 Route::post('/crud/update/{id}', [CrudController::class, 'update'])->name('crud/update');
 
 // Route for ORM Query
-Route::get('/orm', [OrmQueryController::class, 'orm'])->name('orm/index');
+Route::get('/orm', [OrmQueryController::class, 'orm'])->name('orm');
+//show product insert form
+Route::get('/orm/product', [OrmQueryController::class, 'product'])->name('orm/product');
+//save product to database
+Route::post('/orm/product/create', [OrmQueryController::class, 'insertProduct'])->name('orm/product/create');

@@ -19,10 +19,7 @@
             <label for="class" class="form-label">Class</label>
             <input type="text" class="form-control" id="class" name="class" required>
         </div>
-        <div class="mb-3">
-            <label for="image" class="form-label">Photo</label>
-            <input type="file" class="form-control" id="image" name="image" accept="image/*">   
-        </div>
+        
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-secondary">Reset</button>
     </form>

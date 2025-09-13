@@ -22,14 +22,25 @@
                 <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
+                <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Customers
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="">Create</a></li>
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                </ul>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Product
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ route('orm/product') }}">Create</a></li>
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
                 </ul>
                 </li>
                 <li class="nav-item">
@@ -43,6 +54,26 @@
             </div>
         </div>
         </nav>
+        {{-- Error display --}}
+ @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+ @if (session('success_create'))
+         <div class="alert alert-success">
+             {{ session('success_create') }}
+         </div>
+     @endif
+      @if (session('failed_create'))
+         <div class="alert alert-danger">
+             {{ session('failed_create') }}
+         </div>
+     @endif
     <div class="container">
         @yield('content')
         
