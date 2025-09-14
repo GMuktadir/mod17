@@ -3,6 +3,7 @@
 use App\Http\Controllers\CrudController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrmQueryController;
+
 Route::get('/',[CrudController::class,'index'])->name('home');
 //show data from database
 Route::get('/crud/home', [CrudController::class, 'index'])->name('crud/home');
@@ -21,7 +22,17 @@ Route::post('/crud/update/{id}', [CrudController::class, 'update'])->name('crud/
 
 // Route for ORM Query
 Route::get('/orm', [OrmQueryController::class, 'orm'])->name('orm');
-//show product insert form
+//show product
+Route::get('/orm/product/show', [OrmQueryController::class, 'showProduct'])->name('orm/product/show');
+//product insert form
 Route::get('/orm/product', [OrmQueryController::class, 'product'])->name('orm/product');
-//save product to database
+//logic to save product to database 
 Route::post('/orm/product/create', [OrmQueryController::class, 'insertProduct'])->name('orm/product/create');
+
+//Customer Route
+//show customer
+Route::get('/orm/customer/show', [OrmQueryController::class, 'showCustomer'])->name('orm/customer/show');
+//insert customer form
+Route::get('/orm/customer', [OrmQueryController::class, 'customer'])->name('orm/customer');
+//logic to save customer to database
+Route::post('/orm/customer/create', [OrmQueryController::class, 'insertCustomer'])->name('orm/customer/create');

@@ -16,32 +16,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('orm') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="{{ route('orm/customer/show') }}">Customers</a>
                 </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Customers
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="">Create</a></li>
-                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Delete</a></li>
-                </ul>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Product
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ route('orm/product') }}">Create</a></li>
-                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Delete</a></li>
-                </ul>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ route('orm/product/show') }}">Product</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>

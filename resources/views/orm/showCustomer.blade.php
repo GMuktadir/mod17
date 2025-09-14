@@ -1,35 +1,27 @@
 @extends('orm.layouts.app')
-@section('title', 'Product List')
+@section('title', 'Customer List')
 @section('content')
  
-<h1 class="display-6 text-center text-danger">Product Information</h1>
+<h1 class="display-6 text-center text-danger">Customer Information</h1>
+<a href="{{ route('orm/customer') }}"><button class="btn btn-outline-info" type="submit">ADD</button></a>
       <table class="table  table-striped table-hover">
             <thead>
                 <tr>
                     <th>Serial</th>
-                    <th>Product Name</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Stock</th>
+                    <th>Customer Name</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @if($products->isNotEmpty())
+                @if($customers->isNotEmpty())
                     @php
                     $serial = 1;
                     @endphp
                 
-                @foreach($products as $item) 
+                @foreach($customers as $item) 
                 <tr>
                     <td>{{ $serial++ }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->description }}</td>
-                    <td>{{ $item->category }}</td>
-                    <td>{{ $item->price }}</td>
-                    <td>{{ $item->stock }}</td>
-                   
                     
                     <td>
                         {{-- <form action="{{ route('crud/edit',$item->id) }}" method="POST" style="display:inline;">
@@ -48,13 +40,10 @@
                 @endforeach
                 @endif
                 <tr>
-                    <td>Number of product: {{ $numberOfProducts }} </td>
+                    <td>Number of Customer: {{ $numberOfCustomers }} </td>
                     <td>  </td>
                     <td>  </td>
-                    <td>  </td> 
-                    <td> Total price: {{ $totalPrice }} </td>
-                    <td> Sum of stock: {{ $sumStock }} </td> 
-                    <td>  </td>
+                    
                 </tr>
             </tbody>
         </table>
