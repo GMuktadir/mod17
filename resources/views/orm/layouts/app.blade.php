@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">STUDENT</a>
+            <a class="navbar-brand" href="#">ORM</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -22,11 +22,12 @@
                 <a class="nav-link" href="{{ route('orm/customer/show') }}">Customers</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="{{ route('orm/product/show') }}">Product</a>
+                <a class="nav-link" href="{{ route('orm/offer/show') }}">Offers</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="{{ route('orm/product/show') }}">Product</a>
                 </li>
+                
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

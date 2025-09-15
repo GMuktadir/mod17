@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Product;
 use App\Models\Customer;
+use App\Models\Offer;
 
 class OrmQueryController extends Controller
 {
@@ -21,12 +22,19 @@ class OrmQueryController extends Controller
         // $students = Student::where('id',9)->get();
         $sumStock = Product::sum('stock');
         $numberOfProducts = Product::count();
-        $totalPrice = Product::sum('price');
+        // $totalPrice = Product::sum('price');
+
+        $condition = Product::where('stock','>',100)
+                            ->where('stock','<',401)->get();
+        $totalPrice = Product::where('stock','>',100)
+                            ->where('stock','<',401)->sum('price'); //don't use get() here
+        
 
         return view('orm.showProduct', compact('products',
                                         'sumStock',
                                         'totalPrice',
-                                        'numberOfProducts'
+                                        'numberOfProducts',
+                                        'condition'
                                         ));
     }
     public function product()
@@ -77,5 +85,27 @@ class OrmQueryController extends Controller
             return redirect()->route('orm/customer')->with('failed_create','Something went wrong, failed to insert product');
         }
 
+    }
+    public function showOffer()
+    {
+        $offers = Offer::get();
+        $numberOfOffers = Offer::count();
+        return view('orm.showOffer', compact('offers','numberOfOffers'));
+    }
+    public function offer()
+    {
+        return view('orm.createOffer');
+    }
+    public function insertOffer(Request $request)
+    {
+        $offer = new Offer();
+        $offer->offer_name = $request->offer_name;
+        $saveData=$offer->save();
+        if($saveData){
+           
+            return redirect()->route('orm/offer/show')->with('success_create','Offer Inserted Successfully');
+        }else{          
+            return redirect()->route('orm/offer')->with('failed_create','Something went wrong, failed to insert offer');
+        }
     }
 }

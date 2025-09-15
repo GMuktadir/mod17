@@ -36,3 +36,11 @@ Route::get('/orm/customer/show', [OrmQueryController::class, 'showCustomer'])->n
 Route::get('/orm/customer', [OrmQueryController::class, 'customer'])->name('orm/customer');
 //logic to save customer to database
 Route::post('/orm/customer/create', [OrmQueryController::class, 'insertCustomer'])->name('orm/customer/create');
+
+//Route for offer
+//show offer
+Route::get('/orm/offer/show', [OrmQueryController::class, 'showOffer'])->name('orm/offer/show');
+//insert offer form
+Route::get('/orm/offer', [OrmQueryController::class, 'offer'])->name('orm/offer');
+//logic to save offer to database
+Route::post('/orm/offer/create', [OrmQueryController::class, 'insertOffer'])->name('orm/offer/create');

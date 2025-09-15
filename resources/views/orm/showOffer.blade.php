@@ -1,37 +1,28 @@
 @extends('orm.layouts.app')
-@section('title', 'Product List')
+@section('title', 'Offer List')
 @section('content')
- 
-<h1 class="display-6 text-center text-danger">Product Information</h1>
-<a href="{{ route('orm/product/create') }}"><button class="btn btn-outline-info" type="submit">ADD</button></a>
+
+
+<h1 class="display-6 text-center text-danger">Offer Information</h1>
+<a href="{{ route('orm/offer') }}"><button class="btn btn-outline-info" type="submit">ADD</button></a>
       <table class="table  table-striped table-hover">
             <thead>
                 <tr>
                     <th>Serial</th>
-                    <th>Product Name</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Stock</th>
+                    <th>Offer Name</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                {{-- @if($products->isNotEmpty()) --}}
-                @if($condition->isNotEmpty())
+                @if($offers->isNotEmpty())
                     @php
                     $serial = 1;
                     @endphp
                 
-                @foreach($condition as $item) 
+                @foreach($offers as $item) 
                 <tr>
                     <td>{{ $serial++ }}</td>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->description }}</td>
-                    <td>{{ $item->category }}</td>
-                    <td>{{ $item->price }}</td>
-                    <td>{{ $item->stock }}</td>
-                   
+                    <td>{{ $item->offer_name }}</td>
                     
                     <td>
                         {{-- <form action="{{ route('crud/edit',$item->id) }}" method="POST" style="display:inline;">
@@ -50,15 +41,12 @@
                 @endforeach
                 @endif
                 <tr>
-                    <td>Number of product: {{ $numberOfProducts }} </td>
+                    <td>Number of offer: {{ $numberOfOffers }} </td>
                     <td>  </td>
                     <td>  </td>
-                    <td>  </td> 
-                    <td> Total price: {{ $totalPrice }} </td>
-                    <td> Sum of stock: {{ $sumStock }} </td> 
-                    <td>  </td>
+                    
                 </tr>
             </tbody>
         </table>
-        {{-- {{ $students->links('pagination::bootstrap-5') }}    --}}
+
 @endsection
